@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { styled } from "styled-components";
 
 const VideoComponent = (props) => {
+    // styled-components settings
     const { width, height, border } = props;
 
     const StyledVideo = styled.video`
@@ -9,37 +10,36 @@ const VideoComponent = (props) => {
         height: ${height ?? "100px"};
         border: ${border ?? "0px"};
     `;
-    return (
-        <StyledVideo width={width} height={height} border={border} autoPlay />
-    );
-};
-
-function VideoComponents(props) {
-    const width = props.width;
-    const height = props.height;
+    // video calls
     const videoRef = useRef(null);
     const constraints = {
         audio: true,
         video: true,
     };
+    // video on
     const startVideo = async () => {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         if (videoRef && videoRef.current && !videoRef.current.srcObject) {
             videoRef.current.srcObject = stream;
         }
     };
+    // video off
     const endVideo = async () => {
-        videoRef.current.srcObject = null;
+        videoRef.current.src.Object = null;
     };
-
     return (
         <div>
-            <video autoPlay ref={videoRef}></video>
-            <div>video test</div>
+            <StyledVideo
+                width={width}
+                height={height}
+                border={border}
+                ref={videoRef}
+                autoPlay
+            />
             <button onClick={startVideo}>start</button>
             <button onClick={endVideo}>end</button>
         </div>
     );
-}
+};
 
 export default VideoComponent;
