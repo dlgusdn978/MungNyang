@@ -5,7 +5,7 @@ function App() {
         <div className="App">
             <GlobalStyle />
             <span>도(그)라이(어 게임)</span>
-            <VideoComponent width="300px" height="300px" />
+            <VideoComponent />
         </div>
     );
 }

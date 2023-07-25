@@ -31,8 +31,8 @@ const VideoComponent = (props) => {
     return (
         <div>
             <StyledVideo
-                // width={width}
-                // height={height}
+                width={width}
+                height={height}
                 border={border}
                 ref={videoRef}
                 object-fit={objectfit}
