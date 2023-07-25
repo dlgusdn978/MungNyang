@@ -1,5 +1,7 @@
 import GlobalStyle from "./components/style/GlobalStyle";
 import VideoComponent from "./components/VideoBoxing";
+import "./css/App.css";
+
 function App() {
     return (
         <div className="App">
