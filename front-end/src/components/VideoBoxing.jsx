@@ -3,12 +3,13 @@ import { styled } from "styled-components";
 
 const VideoComponent = (props) => {
     // styled-components settings
-    const { width, height, border } = props;
+    const { width, height, border, objectfit } = props;
 
     const StyledVideo = styled.video`
         width: ${width ?? "100px"};
         height: ${height ?? "100px"};
         border: ${border ?? "0px"};
+        object-fit: ${objectfit ?? "fill"};
     `;
     // video calls
     const videoRef = useRef(null);
@@ -25,15 +26,16 @@ const VideoComponent = (props) => {
     };
     // video off
     const endVideo = async () => {
-        videoRef.current.src.Object = null;
+        videoRef.current.srcObject = null;
     };
     return (
         <div>
             <StyledVideo
-                width={width}
-                height={height}
+                // width={width}
+                // height={height}
                 border={border}
                 ref={videoRef}
+                object-fit={objectfit}
                 autoPlay
             />
             <button onClick={startVideo}>start</button>
